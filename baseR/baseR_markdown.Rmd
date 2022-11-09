@@ -1,0 +1,108 @@
+---
+title: "baseR_markdown"
+author: "Glory"
+date: "2022-11-09"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+Reading data practice
+```{r}
+file <- readRDS("my_day2matrix.rds")
+file
+```
+
+### Question 3 Adding rows and columns
+
+```{r}
+rowSums <- rowSums(file, na.rm = TRUE)
+rowMeans <- rowMeans(file, na.rm = TRUE)
+file_1 <- cbind(file, rowSums, rowMeans)
+file_1
+```
+
+### Question 4 loading data-ToothGrowth
+
+```{r}
+data("ToothGrowth")
+```
+
+### Question 5 More info on dataset
+
+```{r}
+summary(ToothGrowth)
+
+```
+
+### Columns in dataset
+
+```{r}
+head(ToothGrowth)
+```
+
+### Mean toothlength
+
+```{r}
+mean(ToothGrowth$len)
+```
+
+### Minimum and maximum legnth
+
+```{r}
+max(ToothGrowth$len)
+min(ToothGrowth$len)
+```
+
+### calculate the row sum and Mean of dataset
+
+```{r}
+rowSums(ToothGrowth)
+rowMeans(ToothGrowth)
+```
+cannot because of non numeric data
+
+### Creating a function
+
+```{r}
+triangle <- function(a, b) {
+               hypotenuse <- sqrt(a^2 + b^2)
+                     return(hypotenuse)
+}
+
+triangle(2,9)
+```
+
+### Using apply function
+
+```{r}
+vec <- c(10:20)
+square <- function(y) {
+  sq <- y^2
+  return(sq)
+}
+square(4)
+
+# use lapply
+lapply(vec, square)
+# use sapply
+sapply(vec, square)
+```
+
+### using apply function on list
+
+```{r}
+my_list <- list(c(1:10), c(2:4), vec, c(T,F,T,T,F))
+lapply(my_list, sum)
+sapply(my_list, sum)
+```
+### using rep with apply function
+
+```{r}
+new_list <- sapply(my_list, rep, each = 3)
+new_list
+```
+
