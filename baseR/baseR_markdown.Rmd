@@ -105,4 +105,33 @@ sapply(my_list, sum)
 new_list <- sapply(my_list, rep, each = 3)
 new_list
 ```
+### using loop function
+
+```{r}
+i <- 1
+for (i in 1:7) {
+        k <- i^3
+           print(k)
+}
+```
+
+### Loop function: Question 2
+
+```{r}
+data("iris")
+for(j in colnames(iris)) {
+        x <- nchar(j, type = "chars")
+             y <- paste0(j, sep = " ", x, collapse = NULL)
+  print(y)
+}
+```
+
+### Loop function Question 3
+
+```{r}
+colours_vector <- c("red", "orange", "purple", "yellow", "pink", "blue")
+n <- nchar(colours_vector, type = "chars")
+z <- ifelse(n == 4, colours_vector, n)
+print(z)
+```
 
