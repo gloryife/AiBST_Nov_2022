@@ -288,17 +288,11 @@ geom_bar(aes(fill = genus), color="black", linewidth=0.5) +
 
 Using `cowplot`.
 
-```{r, fig.height=6, fig.width=12}
+```{r, fig.height=6, fig.width=10}
 library(cowplot)
-first_row <- cowplot::plot_grid(obds_diamonds, obds_chickweight, nrow = 1
-                                
-)
-second_row <- cowplot::plot_grid(obds_msleep, nrow = 1
-                                 
-)
-super_plot <- cowplot::plot_grid(first_row, second_row, labels = c("A", "B", "C",  nrow = 2)
-                                 
-)
+first_row <- cowplot::plot_grid(obds_chickweight, obds_msleep, nrow = 1)
+second_row <- cowplot::plot_grid(obds_diamonds, nrow = 1)
+super_plot <- cowplot::plot_grid(first_row, second_row, labels = c("A", "B"),  nrow = 2)
 super_plot
 ```
 
