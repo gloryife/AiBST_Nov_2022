@@ -742,6 +742,7 @@ hist(t_test_pvalues, breaks = 50)
 ```{r}
 result_bh <- p.adjust(t_test_pvalues,method = "BH")
 hist(result_bh) 
+table(result_bh < 0.05)
 
 ```
 
